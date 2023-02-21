@@ -9,23 +9,23 @@
 <script>
 liSelected = null;
 
-function onTabClick(li) {
-	if(liSelected != null){
-		li.className = "";	
+function onTabClicked(li) {
+	if(liSelected != null) {
+		liSelected.className = "";		
 	}
 	
 	li.className = "selected";
-	liSelected= li;
+	liSelected = li;
 }
 </script>
 <body>
 <div class="tab-box">
 	<ul>
-        <li onclick="onTabClick(this)">메뉴 5</li>
-        <li onclick="onTabClick(this)">메뉴 4</li>
-        <li onclick="onTabClick(this)">메뉴 3</li>
-        <li onclick="onTabClick(this)">메뉴 2</li>
-        <li onclick="onTabClick(this)">메뉴 1</li>
+        <li onclick="onTabClicked(this)">메뉴5</li>
+        <li onclick="onTabClicked(this)">메뉴4</li>
+        <li onclick="onTabClicked(this)">메뉴3</li>
+        <li onclick="onTabClicked(this)">메뉴2</li>
+        <li onclick="onTabClicked(this)">메뉴1</li>
     </ul>
     <div>
     	탭뷰입니다.
