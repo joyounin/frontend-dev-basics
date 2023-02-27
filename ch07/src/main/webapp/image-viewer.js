@@ -1,16 +1,14 @@
 var imageViewer = {
-	init: function(){
-		for(var i = 0; i < 100; i++){
+	init: function() {
+		for(var i = 0; i < 1000; i++){
 			this._changeImage();
 		}
 	},
-	_changeImage: function(){
-		index = Math.floor(Math.random()*this._images.length);
+	_changeImage: function() {
+		var index = Math.floor( Math.random() * (this._images.length-1)  ) + 1;
 		console.log(index);
 	},
-	_intervalId: function(){
-		
-	},
+	_intevalId: null,
 	_images: [{
 		name: '국화', 
 		file: 'Chrysanthemum.jpg'
