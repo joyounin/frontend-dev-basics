@@ -1,14 +1,15 @@
 var imageViewer = {
-	init: function() {
-		$(imageViewer._btnImage);
-	},
 	_changeImage: function() {
-		var index = Math.floor( Math.random() * (this._images.length-1)) + 1;
-		console.log(index, this._images[index]);
-
-	},
-	_btnImage: function(){
-		$('.image-viewer .buttons #btn-change').click(imageViewer._changeImage);
+		//console.log(images);
+		var _this = this;
+		$('#btn-change').click(function(){
+			var index = Math.floor( Math.random() * (_this._images.length-1)) + 1;
+			var images = _this._images[index];
+			$("img").attr({
+			src: 'images/' +  images.file,
+			title: images.name
+			});
+		});
 	},
 	_intevalId: null,
 	_images: [{
@@ -35,5 +36,8 @@ var imageViewer = {
 	},{
 		name: '튤립', 
 		file: 'Tulips.jpg'
-	}]
+	}],
+	init: function() {
+			$(imageViewer._changeImage.bind(this));
+	}
 }
