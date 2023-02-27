@@ -1,12 +1,14 @@
 var imageViewer = {
 	init: function() {
-		for(var i = 0; i < 1000; i++){
-			this._changeImage();
-		}
+		$(imageViewer._btnImage);
 	},
 	_changeImage: function() {
-		var index = Math.floor( Math.random() * (this._images.length-1)  ) + 1;
-		console.log(index);
+		var index = Math.floor( Math.random() * (this._images.length-1)) + 1;
+		console.log(index, this._images[index]);
+
+	},
+	_btnImage: function(){
+		$('.image-viewer .buttons #btn-change').click(imageViewer._changeImage);
 	},
 	_intevalId: null,
 	_images: [{
