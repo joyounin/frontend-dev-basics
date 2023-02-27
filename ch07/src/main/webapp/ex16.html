@@ -6,6 +6,8 @@
 <script>
 $(function(){
 	setTimeout(function(){
+		$('li:contains("12345")').css("color", "blue");
+		$('li:has("strong")').css("color", "red");
 	}, 1000);
 });
 </script>
