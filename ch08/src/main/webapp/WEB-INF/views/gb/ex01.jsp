@@ -15,7 +15,7 @@ var render = function(vo){
 		" <strong>"+ vo.name +"</strong>" +
 		" <p>" + vo.message + "</p>" +
 		" <strong></strong>" +
-		" <a href='' data-no=''>삭제</a>" +
+		" <a href='' data-no='" + vo.no + "'>삭제</a>" +
 		"</li>";
 		
 	$("#list-guestbook").prepend(htmls);
@@ -43,7 +43,7 @@ $(function(){
 					console.error(response.message);
 					return;
 				}
-				render(response.data);
+				render(response.data, true);
 			}
 		});
 	});

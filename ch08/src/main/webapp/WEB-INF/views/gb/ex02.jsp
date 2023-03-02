@@ -13,9 +13,23 @@
 // scroll event는 ch07/ex37 참고
 // api url /guestbook/api?sno=10: sno보다 작은 no의 row를 top-k(limit 0, k) 구현 할 것
 //
+var render = function(vo, mode){
+	var htmls = 
+		"<li data-no='" + vo.no + "'>" +
+		" <strong>"+ vo.name +"</strong>" +
+		" <p>" + vo.message + "</p>" +
+		" <strong></strong>" +
+		" <a href='' data-no='" + vo.no + "'>삭제</a>" +
+		"</li>";
+	
+	$("#list-guestbook")[mode? "prepend":"append"](htmls);
+	
+	var data = $lastLi.attr("data-no");
+}
+
 var fetch = function(){
 	$.ajax({
-		url: "${pageContext.request.contextPath}/guestbook/api?sno=0",
+		url: "${pageContext.request.contextPath}/guestbook/api?sno=10",
 		type: "get",
 		dataType: "json",
 		success: function(response){
@@ -23,7 +37,10 @@ var fetch = function(){
 				console.error(response.message);
 				return;
 			}
-			render(response.data);
+
+			response.data.forEach(function(vo){
+				render(vo);
+			})
 		}
 	});
 }
